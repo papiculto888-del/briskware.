@@ -1,0 +1,21 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/papiculto888-del/briskware/main/briskware"))()
+
+local UI = Library.new("VAPE")
+
+local combat = UI:CreateTab("Combat")
+local movement = UI:CreateTab("Movement")
+local visuals = UI:CreateTab("Visuals")
+
+local speed = movement:CreateModule({
+    Name = "Speed",
+    Callback = function(on)
+        print("Speed:", on)
+    end,
+})
+speed:AddSlider({Name = "Value", Min = 16, Max = 100, Default = 30, Callback = function(v) print(v) end})
+speed:AddToggle({Name = "Auto Jump", Callback = function(s) print(s) end})
+
+local esp = visuals:CreateModule({Name = "ESP", Callback = function(on) print("ESP:", on) end})
+esp:AddDropdown({Name = "Mode", Options = {"Box", "Outline", "Name"}, Callback = print})
+
+UI:Notify("Loaded", "Tap the V button to toggle", 4)
